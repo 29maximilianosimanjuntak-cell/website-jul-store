@@ -1,0 +1,400 @@
+/* Warna Palet:
+   - Primer: #008080 (Teal - Keren, Unik)
+   - Sekunder: #FFD700 (Gold/Emas - Berlian, Mewah)
+   - Latar Belakang: #F5F5DC (Beige/Krem Lembut - Vintage, Hangat)
+   - Teks: #333333 (Abu-abu Gelap)
+*/
+
+/* Reset Dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #F5F5DC; /* Krem Lembut */
+    color: #333333;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: #008080;
+}
+
+a:hover {
+    color: #FFD700;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #333333; /* Abu-abu Gelap */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Animasi: Sedikit efek bayangan saat di-scroll (dilakukan di JS) */
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo i {
+    color: #FFD700; /* Emas untuk Berlian */
+    margin-right: 0.5rem;
+    font-size: 1.8rem;
+    /* Animasi: Logo sedikit membesar saat hover */
+    transition: transform 0.3s;
+}
+
+.logo i:hover {
+    transform: scale(1.1);
+}
+
+.nav-links a {
+    color: white;
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #FFD700;
+    border-bottom: 2px solid #FFD700;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    position: relative;
+    color: white;
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #008080; /* Teal */
+    color: white;
+    border-radius: 50%;
+    padding: 0.1rem 0.4rem;
+    font-size: 0.7rem;
+}
+
+.menu-toggle {
+    display: none; /* Sembunyikan di desktop */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* MOBILE BUY NOW BUTTON */
+.mobile-buy-now-btn {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #008080; /* Teal */
+    z-index: 999;
+    display: none; /* Sembunyikan secara default */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.buy-now-btn {
+    display: block;
+    background-color: #FFD700; /* Emas */
+    color: #333333;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.buy-now-btn:hover {
+    background-color: #e0b400; /* Emas lebih gelap */
+}
+
+
+/* SECTIONS */
+.section {
+    padding: 4rem 5%;
+    min-height: 80vh;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #008080; /* Teal */
+    font-weight: 700;
+}
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding-top: calc(4rem + 60px); /* Padding agar tidak tertutup navbar */
+    background-color: #ffffff; /* Latar Putih untuk kontras */
+}
+
+.hero-content {
+    flex: 1;
+    animation: slideInLeft 1s ease-out; /* Animasi */
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Animasi: Sedikit bergerak saat hover */
+    transition: transform 0.5s;
+}
+
+.hero-image:hover {
+    transform: translateY(-5px);
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #FFD700; /* Emas */
+    color: #333333;
+    padding: 0.75rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #e0b400;
+    transform: scale(1.05);
+}
+
+/* PRODUK SECTION */
+.produk {
+    background-color: #f0f0f0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0; /* Untuk animasi fade-in */
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.product-card h3 {
+    color: #333333;
+    margin-bottom: 0.5rem;
+}
+
+.product-card .price {
+    display: block;
+    font-size: 1.2rem;
+    color: #008080; /* Teal */
+    font-weight: bold;
+    margin: 1rem 0;
+}
+
+.add-to-cart {
+    background-color: #008080; /* Teal */
+    color: white;
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+    background-color: #006666;
+}
+
+/* REVIEW SECTION */
+.review-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.review-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 450px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    border-left: 5px solid #FFD700; /* Garis Emas */
+    /* Animasi: Berkedip saat masuk ke viewport (dibuat di JS) */
+}
+
+.review-card .quote {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.review-card .reviewer {
+    display: block;
+    text-align: right;
+    font-weight: bold;
+    color: #008080;
+}
+
+/* FOOTER */
+.footer {
+    background-color: #333333;
+    color: white;
+    text-align: center;
+    padding: 2rem 5%;
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+    color: #FFD700; /* Emas */
+    transform: scale(1.2);
+}
+
+/* ANIMASI KEYFRAMES */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-content h1, .hero-content p {
+        text-align: center;
+    }
+
+    .hero-image {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Sembunyikan di mobile secara default */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Sesuaikan dengan tinggi navbar */
+        left: 0;
+        background-color: #333333;
+        text-align: center;
+        padding: 1rem 0;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        z-index: 990;
+        /* Animasi: Transisi saat menu terbuka */
+        transition: max-height 0.5s ease-in-out;
+        overflow: hidden;
+        max-height: 0; /* Untuk menyembunyikan dengan transisi */
+    }
+
+    .nav-links.open {
+        display: flex; /* Tampilkan saat class 'open' aktif */
+        max-height: 300px; /* Nilai cukup besar untuk menampung semua link */
+    }
+
+    .nav-links a {
+        margin: 0.5rem 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Tampilkan tombol toggle */
+    }
+
+    .section {
+        padding: 3rem 5%;
+    }
+
+    /* Tampilkan tombol buy now di mobile */
+    .mobile-buy-now-btn {
+        display: block;
+    }
+
+    /* Tambah padding di bawah body agar konten tidak tertutup tombol buy now */
+    body {
+        padding-bottom: 60px;
+    }
+}
